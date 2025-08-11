@@ -1,41 +1,24 @@
-import random
-item_list = ["Rock","Paper","Scissor"]
- user_choice = input("Enter your choice =")
+# Basic Functions
 
- comp_choice = random.choice(item_list)
+This file is just a small collection of Python functions I use regularly in different scripts.  
+Nothing fancy — just little helpers that save time when writing code.
 
- print(f"lets see who wins the game, user choice = {user_choice}, computer choice ={comp_choice}")
+# What’s inside
 
+A mix of simple, reusable bits of code for things like:
+- Cleaning and formatting data
+- Running quick calculations
+- Small quality-of-life shortcuts that make bigger scripts less messy
 
-##if function to handle each and every condition which user gives - 
+The idea is to keep these in one place so I don’t have to rewrite the same thing over and over again.
 
+# Why this exists
 
- if user_choice == comp_choice:
-    print("Both chooses same so Match Tie ")
+If you’ve ever opened an old script and thought,  
+“Wait… I already wrote this somewhere else,”  
+you’ll understand why. This file is my attempt at not reinventing the wheel every other week.
 
-elif user_choice == "Rock":
-    if comp_choice == "Scissor":
-        print("Rock smashes scissor User wins")
-    else:
-        print("Scissor cuts paper Computer wins")
+## How to use
 
-
-elif user_choice == "Scissor":
-    if comp_choice == "Paper":
-        print("Scissor cuts paper user wins ")
-    else:
-        print("Paper covers Rock computer wins")
-
-elif user_choice == "Paper":
-    if comp_choice == "Rock":
-        print("Paper covers Rock user wins")
-    else:
-        print("Paper covers Rock computer wins")
-else:
-    print("Enjoy it failed")
-
-"""Output - 
-
-Scissor cuts paper user wins"""
-
-     
+Just import whatever you need into your main script:
+Thats it
