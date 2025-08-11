@@ -1,0 +1,85 @@
+Functions For Data Cleaning - 
+
+from google.colab import files
+uploaded = files.upload()  
+
+Uses -
+To upload data or file in google colab directly
+
+
+import pandas as pd
+df = pd.read_csv('Diwali Sales Data.csv', encoding='unicode_escape')
+df.head()
+
+To read csv in python, encoding to remove any errors
+
+df.info()
+
+To know the structure and data type of each col.
+
+
+df.drop(['status','unnamed1'] , axis=1,inplace=True)
+
+To drop any col. From df, axis=1 to remove whole Col.
+
+ df.isnull()
+df.isnull().sum()
+
+To check if there are any null values by giving True/Fasle
+To add sum, can know null values in count format
+We use inplace so we can save memory and time. As, if we wont use it we need to save multiple datasets.
+
+df['Amount'] = df['Amount'].astype('int')
+
+To change the data type of col.
+To check data type = df[“Amount”].dtypes
+
+df.rename(columns={'Marital_Status':'Shaadi'})
+
+To rename col. names
+
+
+
+
+
+df.describe()
+df[['Age','Orders',"Amount"]].describe()
+
+Its basically gives basic quantitative table like count, mean, std, max,min,25,50%
+Df.columns is to know the name of each col. Or index
+
+
+EDA -   Exploratory DataAnalysis
+
+ax = sns.countplot(x='Gender',data=df)
+
+
+for bars in ax.containers:  
+   ax.bar_label(bars)       
+
+
+
+
+sns. countplot is for plotting the data on bar graph by specifying x and data
+After these the rectangle charts move its containers so to label them we use ax.containers.
+We will take help of loops here so we can label each rectangle
+
+#Group by on the basis of Gender:
+sales_gender= df.groupby(['Gender'],as_index=False)['Amount'].sum().sort_values(by='Amount',ascending=False)
+
+Group by function just like sql, as_index so we can add groupby in col. 
+.head(10)
+For top 10
+
+ax = sns.barplot(data=sales_state,x= 'State',y='Orders', hue = 'State')
+
+
+for bars in ax.containers:
+   ax.bar_label(bars)
+
+
+sns.set(rc={'figure.figsize':(15,10)})
+
+
+Barplot helps us creating bar graph
+Set function is to resize the bargarph 
